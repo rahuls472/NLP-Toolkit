@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c65bb4eb-c6ef-4b0d-92f8-c1099a84c76f)NLPApp is a graphical user interface (GUI) application built with Python and ttkbootstrap. This application allows users to perform various NLP (Natural Language Processing) tasks, including:
+NLPApp is a graphical user interface (GUI) application built with Python and ttkbootstrap. This application allows users to perform various NLP (Natural Language Processing) tasks, including:
 
 Sentiment Analysis
 Named Entity Recognition (NER)
@@ -34,11 +34,7 @@ Installation
     pip install myapi # If you have a custom API package
   
 3. Run the Application:
-    `![Screenshot From 2024-10-08 11-07-56](https://github.com/user-attachments/assets/9482ccb0-7d29-4a53-908d-a720ee88ad4b)
-![Screenshot From 2024-10-08 10-52-33](https://github.com/user-attachments/assets/e5866b62-cadc-4f86-a35f-f644a02ef92f)
-![Screenshot From 2024-10-08 10-52-04](https://github.com/user-attachments/assets/9962eb6b-d319-4cf8-8807-b273aea53bbd)
-![Screenshot From 2024-10-08 10-51-42](https://github.com/user-attachments/assets/35cf57d4-4862-4ffe-a9d5-9c1406cfdd51)
-``bash
+    ```bash
     python app.py
 
 
@@ -70,3 +66,9 @@ Future Improvements
   Add more NLP functionalities such as text summarization, translation, and keyword extraction.
   Integrate a database to store user information more securely.
   Optimize the NLP tasks by improving response time and accuracy.
+
+
+`![Screenshot From 2024-10-08 11-07-56](https://github.com/user-attachments/assets/9482ccb0-7d29-4a53-908d-a720ee88ad4b)
+![Screenshot From 2024-10-08 10-52-33](https://github.com/user-attachments/assets/e5866b62-cadc-4f86-a35f-f644a02ef92f)
+![Screenshot From 2024-10-08 10-52-04](https://github.com/user-attachments/assets/9962eb6b-d319-4cf8-8807-b273aea53bbd)
+![Screenshot From 2024-10-08 10-51-42](https://github.com/user-attachments/assets/35cf57d4-4862-4ffe-a9d5-9c1406cfdd51)
