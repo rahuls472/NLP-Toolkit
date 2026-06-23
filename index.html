@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aakash Badua Hai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(160deg, #f5f0e8 0%, #ede4d0 50%, #e8dfc8 100%);
+            font-family: 'Playfair Display', Georgia, serif;
+            padding: 1rem;
+        }
+
+        .poem-container {
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .leaf-accent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            animation: fadeSlideDown 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .leaf-line {
+            width: 60px;
+            height: 1px;
+            background: #7a9a60;
+            opacity: 0.6;
+        }
+
+        .leaf-icon {
+            font-size: 22px;
+            opacity: 0.7;
+            animation: sway 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .poem-label {
+            font-size: clamp(10px, 2vw, 13px);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #7a9a60;
+            margin-bottom: 2rem;
+            animation: fadeSlideDown 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* === H1 ANIMATION === */
+        .poem-line {
+            font-size: clamp(20px, 5vw, 36px);
+            font-weight: 600;
+            color: #2d3a1e;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        .word {
+            display: inline-block;
+            opacity: 0;
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .poem-line span.highlight {
+            color: #5a7a38;
+            position: relative;
+            display: inline-block;
+        }
+
+        .poem-line span.highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 2px;
+            background: #5a7a38;
+            animation: underlineGrow 0.6s ease forwards;
+            animation-delay: 1.6s;
+        }
+
+        /* Glow pulse on the h1 after load */
+        .poem-line {
+            animation: gentleGlow 4s ease-in-out 2s infinite;
+        }
+
+        .divider {
+            width: 40px;
+            height: 2px;
+            background: #7a9a60;
+            margin: 2rem auto;
+            border-radius: 2px;
+            opacity: 0;
+            animation: fadeSlideDown 0.8s ease 1.8s forwards;
+        }
+
+        .poem-subtitle {
+            font-size: clamp(13px, 2.5vw, 16px);
+            font-style: italic;
+            color: #6b7c55;
+            opacity: 0;
+            animation: fadeSlideDown 0.8s ease 2s forwards;
+        }
+
+        /* Decorative background circles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -60px;
+            left: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(100, 140, 80, 0.08);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -80px;
+            right: -40px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(100, 140, 80, 0.06);
+        }
+
+        /* ===== KEYFRAMES ===== */
+
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            0%   { opacity: 0; transform: scale(0.6) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes underlineGrow {
+            from { width: 0%; }
+            to   { width: 100%; }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-8deg); }
+            50%       { transform: rotate(8deg); }
+        }
+
+        @keyframes gentleGlow {
+            0%, 100% { text-shadow: 0 0 0px rgba(90, 122, 56, 0); }
+            50%       { text-shadow: 0 0 18px rgba(90, 122, 56, 0.18); }
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .poem-container {
+                padding: 2rem 1rem;
+            }
+
+            .leaf-line {
+                width: 35px;
+            }
+
+            .poem-label {
+                letter-spacing: 2px;
+            }
+
+            body::before {
+                width: 140px;
+                height: 140px;
+            }
+
+            body::after {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poem-container">
+
+        <div class="leaf-accent">
+            <div class="leaf-line"></div>
+            <div class="leaf-icon">🍃</div>
+            <div class="leaf-line"></div>
+        </div>
+
+        <p class="poem-label">A verse from nature</p>
+
+        <h1 class="poem-line" id="poem-h1"></h1>
+
+        <div class="divider"></div>
+
+        <p class="poem-subtitle">— Traditional Hindi verse</p>
+
+    </div>
+
+    <script>
+        const line1 = ["Neem", "ka", "patta", "kadwa", "hai,"];
+        const line2 = ["Aakash", "Bhadwa", "Hai."];
+        const highlight = ["kadwa", "Bhadwa"];
+
+        const h1 = document.getElementById("poem-h1");
+
+        let delay = 0.4;
+
+        function buildLine(words) {
+            const br = document.createElement("br");
+            words.forEach((word, i) => {
+                const span = document.createElement("span");
+                span.classList.add("word");
+                span.style.animationDelay = delay + "s";
+
+                if (highlight.includes(word)) {
+                    const inner = document.createElement("span");
+                    inner.classList.add("highlight");
+                    inner.textContent = word;
+                    span.appendChild(inner);
+                } else {
+                    span.textContent = word;
+                }
+
+                if (i < words.length - 1) span.textContent += "\u00A0"; // add space after word (non-highlight)
+                if (highlight.includes(word)) span.appendChild(document.createTextNode("\u00A0"));
+
+                h1.appendChild(span);
+                delay += 0.12;
+            });
+            return br;
+        }
+
+        buildLine(line1);
+        h1.appendChild(document.createElement("br"));
+        buildLine(line2);
+    </script>
+
+</body>
+</html>
